@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html
 <header><title>This is title</title>
     <link rel="stylesheet" href="css/styles.css">
@@ -63,12 +67,28 @@ if($inputuser) {
         if ($inputuser == $userarray[$i]) {
             if ($inputpass == $passarray[$i]) {
                 echo "logged in";
-
+                setcookie("userinfo", $inputuser,time() + (86400 * 1));
             }
         }
 
     }
 }
+if(isset($_COOKIE["userinfo"])){
+    echo "cookie is set" ."<br>";
+    echo $_COOKIE["userinfo"]."<br>";
+};
+echo count($_COOKIE);
+echo setcookie("userinfo",$inputuser,time()-3600);
+echo $_COOKIE["userinfo"]."<br>";
+echo count($_COOKIE)."<br>";
+
+$_SESSION["favcolor"]="green";
+$_SESSION["favanimal"]="cat";
+echo "session variables set";
+
+print_r($_SESSION);
+
+
 ?>
 </body>
 </html>
