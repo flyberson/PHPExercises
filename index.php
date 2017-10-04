@@ -1,7 +1,10 @@
 <html
-<body
 <header><title>This is title</title>
-   </header>
+    <link rel="stylesheet" href="css/styles.css">
+</header>
+<body>
+<table>
+
 <?php
 /**
  * Created by PhpStorm.
@@ -10,7 +13,7 @@
  * Time: 9:15 AM
  */
 
-echo "hello";
+echo "hello <br>";
 
 for ($i=0;$i<=10;$i++){
     echo $i;
@@ -21,13 +24,18 @@ for ($i=0;$i<=10;$i++){
 <br>
 <?php
 for ($i=0;$i<=10;$i++){
-
+echo "<tr>";
    // echo $i*$i;
     for ($j=0;$j<=10;$j++){
+        echo "<td>";
         echo $i."*".$j."=". $i*$j."<br>";
+        echo "</td>";
     }
-
+echo "</tr>";
 }
+?>
+</table>
+<?php
 //http://localhost:63342/PHPExercises/index.php?name=friend
 // tilføj efter ? get variabler
 print_r($_GET);
@@ -50,14 +58,16 @@ echo $inputuser;
 echo $inputpass;
 
 //for ($i=0;$i < $userarray)
-for ($i=0;$i<= count($userarray);$i++) {
-    if ($inputuser==$userarray[$i]){
-      if($inputpass==$passarray[$i]){
-          echo "logged in";
+if($inputuser) {
+    for ($i = 0; $i <= count($userarray); $i++) {
+        if ($inputuser == $userarray[$i]) {
+            if ($inputpass == $passarray[$i]) {
+                echo "logged in";
 
-      }
+            }
+        }
+
     }
-
 }
 ?>
 </body>
