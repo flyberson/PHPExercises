@@ -77,9 +77,9 @@ if(isset($_COOKIE["userinfo"])){
     echo "cookie is set" ."<br>";
     echo $_COOKIE["userinfo"]."<br>";
 };
-echo count($_COOKIE);
-echo setcookie("userinfo",$inputuser,time()-3600);
-echo $_COOKIE["userinfo"]."<br>";
+echo count($_COOKIE)."<br>";
+setcookie("userinfo","",time()-3600)."<br>";
+echo $_COOKIE["userinfo"]."should be nothing"."<br>";
 echo count($_COOKIE)."<br>";
 
 $_SESSION["favcolor"]="green";
@@ -89,6 +89,10 @@ echo "session variables set";
 print_r($_SESSION);
 
 
+?>
+<?php
+session_unset();
+session_destroy();
 ?>
 </body>
 </html>
